@@ -2,7 +2,6 @@ package combat;
 
 import personnages.Personnage;
 
-
 public class AffichageEcran {
 
     // **************************************************************************
