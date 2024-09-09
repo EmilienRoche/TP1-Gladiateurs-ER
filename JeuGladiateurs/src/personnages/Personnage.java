@@ -20,16 +20,20 @@ public class Personnage {
     // <editor-fold defaultstate="collapsed" desc="Constructeurs et initialisation">
     public Personnage(String nom, int attaqueMax, int defense, int pvs, int ini) {
         // TODO : Constructeur AVEC paramètres
-        nom = this.nom;
+        this.nom = nom;
         valeurMaxAttaque = attaqueMax;
         valeurDefense = defense;
         pointsDeVie = pvs;
         initiative = ini;
-        
     }
 
     public Personnage() {
         // TODO : Constructeur SANS paramètres qui initialise à ZÉRO ou à ""
+        this.nom = "";
+        valeurMaxAttaque = 0;
+        valeurDefense = 0;
+        pointsDeVie = 0;
+        initiative = 0;
     }
     // </editor-fold>
     public String getNom() {
@@ -85,7 +89,17 @@ public class Personnage {
     // **************************************************************************
     // <editor-fold defaultstate="collapsed" desc="Mécanique de jeu">
     public void afficherInfosPersonnage() {
-        // TODO : Afficher les infos du personnage, tel que montré dans l'énoncé
+        String statut;
+        if (pointsDeVie <= 0)
+        {
+            statut = "Mort";
+        }
+        else
+        {
+            statut = "Vivant";
+        }
+        
+        System.out.println(nom + "\n    Attaque : " + valeurMaxAttaque + "\n    Défense : " + valeurDefense + "\n    Points de vie : " + pointsDeVie + "\n    Initiative : " + initiative + "\n    Statut : " + statut);
     }
 
     private int attaqueCalcul() {
