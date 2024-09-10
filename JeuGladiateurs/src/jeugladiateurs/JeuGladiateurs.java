@@ -3,6 +3,8 @@ package jeugladiateurs;
 import personnages.Personnage;
 import combat.CompteurDeTour;
 import combat.AffichageEcran;
+import personnages.Mirmillon;
+import personnages.Retiaire;
 
 public class JeuGladiateurs {
 
@@ -14,8 +16,8 @@ public class JeuGladiateurs {
     // <editor-fold defaultstate="expanded" desc="Instanciation des objets">
     CompteurDeTour tour = new CompteurDeTour();
     AffichageEcran affichage = new AffichageEcran();
-    Personnage Bob = new Personnage("Bob le malchanceux", 15, 15, 70, 15);
-    Personnage Igor = new Personnage("Igor l'empaleur", 25, 5, 100, 30);
+    Mirmillon Bob = new Mirmillon("Bob le malchanceux", 15, 15, 70, 15, "Mirmillon");
+    Retiaire Igor = new Retiaire("Igor l'empaleur", 25, 5, 100, 30);
     // </editor-fold>
 
     // **************************************************************************
@@ -23,9 +25,9 @@ public class JeuGladiateurs {
     // **************************************************************************
     // <editor-fold defaultstate="collapsed" desc="Affichage pré-combat">
     // TODO : Afficher les infos de chaque personnage
-    Bob.afficherInfosPersonnage();
+    Bob.afficherInfosPersonnageExtended();
     System.out.println("\n");
-    Igor.afficherInfosPersonnage();
+    Igor.afficherInfosPersonnageExtended();
     // TODO : Afficher le message du début du combat
     affichage.afficherDebutCombat();
     // </editor-fold>
@@ -46,20 +48,21 @@ public class JeuGladiateurs {
         {
             if (i == Bob.initiative)
             {
-                Bob.frapperPersonnage(Igor);
+                Bob.frapperPersonnageExtended(Igor);
             }
             else if (i == Igor.initiative)
             {
-                Igor.frapperPersonnage(Bob);
+                Igor.frapperPersonnageExtended(Bob);
             }
         }
 
         affichage.afficherSeparateurInfosPerso();
-        Bob.afficherInfosPersonnage();
+        Bob.afficherInfosPersonnageExtended();
         System.out.println("\n");
-        Igor.afficherInfosPersonnage();
+        Igor.afficherInfosPersonnageExtended();
         affichage.afficherSeparateurDeTour();
     }
+    affichage.afficheVictoire(Igor, Bob);
 
     // </editor-fold>
     
