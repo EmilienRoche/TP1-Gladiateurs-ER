@@ -106,5 +106,10 @@ public class Mirmillon extends Personnage {
         }
     }
     
+    public void setNewInitiativeRandomExtended()
+    {
+        maxIni = 30;
+        setNewInitiativeRandom();   
+    }
     // </editor-fold>
 }

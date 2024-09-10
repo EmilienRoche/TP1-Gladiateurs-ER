@@ -61,6 +61,9 @@ public class JeuGladiateurs {
         System.out.println("\n");
         Igor.afficherInfosPersonnageExtended();
         affichage.afficherSeparateurDeTour();
+        
+        Bob.setNewInitiativeRandomExtended();
+        Igor.setNewInitiativeRandom();
     }
     affichage.afficheVictoire(Igor, Bob);
 
